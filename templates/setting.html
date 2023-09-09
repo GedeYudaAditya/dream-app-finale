@@ -1,0 +1,148 @@
+{% extends "layouts/main_layout.html" %}
+
+{% block content %}
+    <div class="container py-5">
+        <div class="card">
+            <div class="card-body">
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Setting</button>
+                        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Tentang</button>
+                        <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Kontak</button>
+                    </div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <form action="{{ url_for('setting') }}" method="post" enctype="multipart/form-data">
+                        <p class="font-so-small text-muted mt-3">
+                            <b>Pilih Foto Profil</b>
+                        </p>
+
+                        <label for="formFile">
+                            <!-- check if image is not null -->
+                            {% if image %}
+                                <img id="image-preview" style="height: 100px;" src="{{ url_for('static', filename='uploads/' + image) }}" class="img-fluid img-cover rounded" alt="">
+                            {% else %}
+                                <img id="image-preview" style="height: 100px;" src="{{ url_for('static', filename='img/user.png') }}" class="img-fluid img-cover rounded" alt="">
+                            {% endif %}
+                            <!-- upload image -->
+                            <input hidden class="form-control" type="file" name="image" id="formFile">
+                        </label>
+                        <div class="my-3">
+                            <input hidden class="form-control" type="file" id="formFile">
+                        </div>
+
+                        <hr>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <p class="font-so-small text-muted mt-3">
+                                        <b>Ubah Nama</b>
+                                    </p>
+                                    <input type="text" class="form-control" placeholder="Nama Lengkap" id="nama" name="nama" value="{{ nama }}" aria-describedby="namaHelp">
+                                </div>
+                                <!-- password -->
+                                <div class="mb-3">
+                                    <p class="font-so-small text-muted mt-3">
+                                        <b>Ubah Password</b>
+                                    </p>
+                                    <input type="password" class="form-control" placeholder="Password" id="password" name="password">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <p class="font-so-small text-muted mt-3">
+                                        <b>Ubah Email</b>
+                                    </p>
+                                    <input type="email" class="form-control" placeholder="Email" id="email" name="email" value="{{ email }}" aria-describedby="emailHelp">
+                                </div>
+                                <!-- konfirmasi password -->
+                                <div class="mb-3">
+                                    <p class="font-so-small text-muted mt-3">
+                                        <b>Konfirmasi Password</b>
+                                    </p>
+                                    <input type="password" class="form-control" placeholder="Konfirmasi Password" id="password-confirmation" name="password-confirmation">
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn dream-app btn-primary font-small">
+                            SIMPAN
+                        </button>
+                        <!-- <button type="button" class="btn btn-light font-small text-dream-app">
+                            Reset
+                        </button> -->
+                        </form>
+                    </div>
+                    <div class="tab-pane fade text-center" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        <img style="height: 200px;" src="{{ url_for('static', filename='img/logo.png') }}" class="img-fluid img-cover rounded" alt="">
+                        <p class="font-small text-muted mt-3">
+                            Dream App adalah web platform yang dilengkapi dengan kemampuan deep learning yang dapat membantu para melayan dalam melakukan pemantauan kemunculan lumba-lumba secara lebih effisien.
+                        </p>
+                    </div>
+                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                        <div class="text-center">
+                            <img style="height: 200px;" src="{{ url_for('static', filename='img/logo.png') }}" class="img-fluid img-cover rounded" alt="">
+                        </div>
+                        <!-- contact -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <p class="font-so-small text-muted mt-3">
+                                        <b>Alamat</b>
+                                    </p>
+                                    <p >Jl. Udayana No.11, Banjar Tegal, Singaraja</p>
+                                </div>
+                                <div class="mb-3">
+                                    <p class="font-so-small text-muted mt-3">
+                                        <b>Telepon</b>
+                                    </p>
+                                    <p >(0362) 22570</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <p class="font-so-small text-muted mt-3">
+                                        <b>Email</b>
+                                    </p>
+                                    <p >humas@undiksha.ac.id</p>
+                                </div>
+                                <div class="mb-3">
+                                    <p class="font-so-small text-muted mt-3">
+                                        <b>Website</b>
+                                    </p>
+                                    <a href="https://undiksha.ac.id" >https://undiksha.ac.id</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="{{ url_for('index') }}" class="btn btn-secondary font-small w-100 mt-3">
+            BACK
+        </a>
+    </div>
+
+    <script>
+        const imagePreview = document.getElementById('image-preview');
+        const imageUploader = document.getElementById('formFile');
+
+        imageUploader.addEventListener('change', function (event) {
+            const file = this.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.addEventListener('load', function () {
+                    imagePreview.setAttribute('src', this.result);
+                });
+
+                reader.readAsDataURL(file);
+            } else {
+                imagePreview.setAttribute('src', "{{ url_for('static', filename='img/user.png') }}");
+            }
+        });
+    </script>
+{% endblock %}

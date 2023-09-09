@@ -1,0 +1,64 @@
+{% extends "layouts/auth_layout.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-7 text-center">
+        <div class="container py-4" style="height: 100vh;">
+
+            <div class="text-start">
+                <img height="40" src="{{ url_for('static', filename='img/icon.png') }}" alt=""> <span
+                    class="font-small"><b>Dream App</b></span>
+            </div>
+
+            <div class="d-flex align-items-center" style="height: 90%;">
+                <div class="box" style="width: 100%;">
+                    <h3>Selamat Datang</h3>
+                    <b>
+                        <p class="font-small">Daftar untuk mendapatkan akses</p>
+                    </b>
+
+                    <form action="{{ url_for('register') }}" method="POST" class="mt-5">
+                        <div class="mb-4">
+                            <input type="text" class="form-control p-3" placeholder="Nama Lengkap" id="nama" name="nama"
+                                aria-describedby="namaHelp">
+                        </div>
+
+                        <div class="mb-4">
+                            <input type="email" class="form-control p-3" placeholder="Email" id="email" name="email"
+                                aria-describedby="emailHelp">
+                        </div>
+
+                        <div class="mb-4">
+                            <input type="password" class="form-control p-3" placeholder="Password" id="password"
+                                name="password">
+                        </div>
+
+                        <div class="mb-4">
+                            <input type="password" class="form-control p-3" placeholder="Konfirmasi Password" id="password-confirmation"
+                                name="password-confirmation">
+                        </div>
+
+                        <button type="submit" style="width: 100%; height: 60px;" class="btn btn-outline-secondary">Register</button>
+
+                        <p class="text-muted mt-3">Sudah Punya Akun? <span><a href="{{ url_for('login') }}">Masuk</a></span></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-5 bg-light d-none d-lg-flex p-0 relative">
+        <img src="{{ url_for('static', filename='img/banner.png') }}" class="banner" alt="banner">
+
+        <div class="container py-5" style="height: 100%;">
+            <div class="row justify-content-center align-items-end" style="height: 100%;">
+                <div class="card glasses" style="width: 80%; height: max-content;">
+                    <div class="card-body text-center text-white">
+                        <a class="btn dream-app btn-primary px-5 py-1 mb-3"><span class="font-small"><b>Dream App</b></span></a>
+                        <p class="font-small">Dream App adalah web platform yang dilengkapi dengan kemampuan deep learning yang dapat membantu para melayan dalam melakukan pemantauan kemunculan lumba-lumba secara lebih effisien.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

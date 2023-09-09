@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.font-small {
+    font-size: smaller;
+}
+
+.font-bit-small {
+    font-size: 14px;
+}
+
+.font-so-small {
+    font-size: xx-small;
+}
+
+.banner {
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.relative {
+    position: relative;
+}
+
+.glasses {
+    border: none;
+    background-color: rgba(255, 255, 255, 0.37);
+    backdrop-filter: blur(10px);
+}
+
+.btn.dream-app.btn-primary {
+    background-color: #28508B;
+    border-color: #28508B;
+}
+
+.btn.dream-app.btn-primary:hover {
+    background-color: #3866ac;
+    border-color: #3866ac;
+}
+
+.btn.dream-app.btn-primary:focus {
+    background-color: #497fcf;
+    border-color: #497fcf;
+}
+
+.text-dream-app {
+    color: #28508B;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.img-cover {
+    object-fit: cover;
+    object-position: center;
+}
+
+.status-box {
+    box-shadow: -3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.video-box {
+    background-color: rgb(209, 209, 209);
+}
+
+.loading {
+    position: absolute;
+    background-color: white;
+    z-index: 1000;
+    width: 100vw;
+    height: 100vh;
+    /* top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+}
+
+.box-full {
+    width: 100%;
+    height: 100%;
+}
