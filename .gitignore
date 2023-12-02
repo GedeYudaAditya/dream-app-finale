@@ -3,3 +3,5 @@ env/
 __pycache__
 assets
 ssl
+templates/static/model
+dream-app-finale.zip

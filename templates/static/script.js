@@ -16,6 +16,7 @@ const video = document.querySelector("#videoElement");
 var degree = document.getElementById("degree");
 var statusH = document.getElementById("status");
 var statusFPS = document.getElementById("fps");
+var model = document.getElementById("nama_model");
 var videobox = document.getElementById("video_stream");
 var btn_post = document.getElementById("btn_post");
 var file = document.getElementById("file");
@@ -93,6 +94,7 @@ setInterval(() => {
       // console.log(response);
       degree.innerHTML = response.degree + "&deg;";
       statusFPS.innerHTML = response.mean_fps + " FPS";
+      model.innerHTML = response.model;
       if (response.status) {
         degree.style.color = "green";
         statusH.innerHTML = "Muncul";
