@@ -13,7 +13,7 @@ var canvas = document.getElementById("canvas");
 var context = canvas.getContext("2d");
 const video = document.querySelector("#videoElement");
 
-var degree = document.getElementById("degree");
+// var degree = document.getElementById("degree");
 var statusH = document.getElementById("status");
 var statusFPS = document.getElementById("fps");
 var model = document.getElementById("nama_model");
@@ -92,15 +92,15 @@ setInterval(() => {
     type: "GET",
     success: function (response) {
       // console.log(response);
-      degree.innerHTML = response.degree + "&deg;";
+      // degree.innerHTML = response.degree + "&deg;";
       statusFPS.innerHTML = response.mean_fps + " FPS";
       model.innerHTML = response.model;
       if (response.status) {
-        degree.style.color = "green";
-        statusH.innerHTML = "Muncul";
+        // degree.style.color = "green";
+        statusH.innerHTML = "Ada";
       } else {
-        degree.style.color = "red";
-        statusH.innerHTML = "Tidak Muncul";
+        // degree.style.color = "red";
+        statusH.innerHTML = "Tidak Ada";
       }
     },
     error: function (xhr) {
