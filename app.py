@@ -10,10 +10,7 @@ import base64
 
 # Kebutuhan Untuk Prosesing Model
 import cv2
-import imutils
 import numpy as np
-import cvzone
-import math
 import os
 import datetime
 
@@ -22,9 +19,6 @@ import tensorflow as tf
 from tensorflow.keras.utils import CustomObjectScope
 import time as waktu
 from step5_metricsForTraining import dice_loss, dice_coef, iou, iou_loss
-
-# for GUI
-from PIL import Image, ImageFont, ImageDraw
 
 imageHeight = 500
 imageWidth = 888
